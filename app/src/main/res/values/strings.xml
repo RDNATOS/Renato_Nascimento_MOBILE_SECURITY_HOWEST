@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Renato_Nascimento_MOBILE_SECURITY_PROJECT</string>
+    <string name="login_page">Login Page</string>
+    <string name="user_detail_title">User Profile</string>
+    <string name="sign_up"> Sign Up </string>
+</resources>
