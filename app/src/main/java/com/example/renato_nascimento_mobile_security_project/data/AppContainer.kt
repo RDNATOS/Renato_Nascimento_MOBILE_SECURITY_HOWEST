@@ -31,7 +31,7 @@ class DefaultAppContainer(private val context : Context) : AppContainer {
     //apk_key=live_O9u8ufaLzW85vTJYSErLXZgtlGAsASVrm1UbOfv7wOm1TsjHuxYc7d0At86tMYYg
 
     /**
-     * Use the Retrofit builder to build a retrofit object using a kotlinx.serialization converter
+     * Retrofit builder to build a retrofit object using a kotlinx.serialization converter
      */
     private val retrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))

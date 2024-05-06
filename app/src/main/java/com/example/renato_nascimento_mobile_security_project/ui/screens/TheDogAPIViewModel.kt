@@ -14,7 +14,6 @@ import com.example.renato_nascimento_mobile_security_project.RenatoNascimentoMob
 import com.example.renato_nascimento_mobile_security_project.data.TheDogAPIPhotosRepository
 import com.example.renato_nascimento_mobile_security_project.network.TheDogAPIPhoto
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import java.io.IOException
 
 /**
@@ -32,15 +31,15 @@ class TheDogAPIViewModel(private val theDogAPIPhotosRepository: TheDogAPIPhotosR
         private set
 
     /**
-     * Call getMarsPhotos() on init so we can display status immediately.
+     * Call getTheDogAPIPhotos() on init so we can display status immediately.
      */
     init {
         getTheDogAPIPhotos()
     }
 
     /**
-     * Gets Mars photos information from the Mars API Retrofit service and updates the
-     * [MarsPhoto] [List] [MutableList].
+     * Gets TheDogAPI photos information from the Mars API Retrofit service and updates the
+     * [TheDogAPIPhoto] [List] [MutableList].
      */
     fun getTheDogAPIPhotos() {
         viewModelScope.launch {

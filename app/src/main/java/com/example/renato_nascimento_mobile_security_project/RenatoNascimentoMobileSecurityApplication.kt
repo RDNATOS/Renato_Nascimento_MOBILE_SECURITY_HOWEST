@@ -17,14 +17,3 @@ class RenatoNascimentoMobileSecurityApplication : Application() {
         container = DefaultAppContainer(this)
     }
 }
-
-/*
-class RenatoNascimentoMobileSecurityApplication : Application() {
-
-    lateinit var container: AppContainer
-    override fun onCreate() {
-        super.onCreate()
-        container = DefaultAppContainer()
-    }
-}
- */

@@ -1,10 +1,6 @@
 package com.example.renato_nascimento_mobile_security_project
 
 
-//import androidx.navigation.NavHostController
-//import androidx.navigation.compose.rememberNavController
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,23 +22,20 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.renato_nascimento_mobile_security_project.data.UserViewModel
-import com.example.renato_nascimento_mobile_security_project.ui.screens.PhotoViewModel
 import com.example.renato_nascimento_mobile_security_project.ui.screens.TheDogAPIViewModel
 
 class MainActivity : ComponentActivity() {
 
-    //Enumeration in order to get the destination of every page in the app
+    //enumeration in order to get the destination of every page in the app
     enum class DoggoPages() {
         StartPage,
         MainPage,
@@ -90,23 +83,13 @@ fun NavigationHost(navController: NavHostController, modifier: Modifier = Modifi
 
         composable(route = MainActivity.DoggoPages.Login.name) {
             val allUsersFromDatabase by viewModel.getUsers().collectAsState(emptyList())
-            LoginPage(navController = navController, modifier = modifier, viewModel, allUsersFromDatabase)
+            LoginPage.start(navController = navController, modifier = modifier, viewModel, allUsersFromDatabase)
+            //LoginPage(navController = navController, modifier = modifier, viewModel, allUsersFromDatabase)
         }
 
         composable(route = MainActivity.DoggoPages.ProfilePage.name) {
             UserProfilePage(navController = navController, modifier = modifier, viewModel)
 
-
-            /*
-
-              val context = LocalContext.current
-    val coroutineScope = rememberCoroutineScope()
-
-    coroutineScope.launch {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=dQw4w9WgXcQ"))
-        context.startActivity(intent)
-    }
-             */
         }
 
         composable(route = MainActivity.DoggoPages.SignUp.name

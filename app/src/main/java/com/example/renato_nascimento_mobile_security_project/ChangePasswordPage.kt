@@ -1,6 +1,5 @@
 package com.example.renato_nascimento_mobile_security_project
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -21,9 +20,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.renato_nascimento_mobile_security_project.data.User
 import com.example.renato_nascimento_mobile_security_project.data.UserViewModel
 import kotlinx.coroutines.launch
 
@@ -65,27 +62,23 @@ fun ChangePasswordPage(
 
         Spacer(modifier = Modifier.height(32.dp))
 
-                    // Error message if passwords don't match
+                    // a error message is displayed if passwords don't match
                     if (passwordChangeState.value == PasswordChangeState.PASSWORDS_DO_NOT_MATCH) {
                         Text("Passwords do not match", color = Color.Red)
                     }
 
-                    // Text indicating password change success
+                    // the text indicates that password change was a success
                     if (passwordChangeState.value == PasswordChangeState.PASSWORD_CHANGED) {
                         Text("Password changed successfully", color = Color.Green)
                     }
 
-        // Button to change password
+        // CHANGE PASSWORD
         Button(
             onClick = {
-                Log.d("ChangePasswordPage", "Change password button clicked") // Add this log statement
-
                 val newPassword = newPasswordState.value.text
                 val confirmPassword = confirmPasswordState.value.text
 
                 if (newPassword == confirmPassword) {
-                    Log.d("ChangePasswordPage", "Passwords match") // Add this log statement
-
                     viewModel.viewModelScope.launch {
                         val loggedUser = viewModel.getCurrentUser()
                         val updatedUser = loggedUser?.copy(password = newPassword)
@@ -96,7 +89,6 @@ fun ChangePasswordPage(
                     }
 
                 } else {
-                    Log.d("ChangePasswordPage", "Passwords don't match") // Add this log statement
                     passwordChangeState.value = PasswordChangeState.PASSWORDS_DO_NOT_MATCH
                 }
             },

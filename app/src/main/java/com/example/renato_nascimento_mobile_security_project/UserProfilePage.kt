@@ -68,7 +68,7 @@ fun UserProfilePage(
             .padding(16.dp)
     ) {
         if (currentUser != null) {
-            // Display user name
+            // USER NAME
             Text(
                 text = "Name: ${currentUser.name}",
                 style = TextStyle(fontWeight = FontWeight.Bold)
@@ -76,12 +76,12 @@ fun UserProfilePage(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Display user email
+            // USER EMAIL
             Text(text = "Email: ${currentUser.email}")
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // Button to change password
+            // CHANGE PASSWORD
             Button(
                 onClick = {
                     navController.navigate(MainActivity.DoggoPages.ChangePasswordPage.name)
@@ -115,15 +115,15 @@ fun UserProfilePage(
             // LOG OUT
             Button(
                 onClick = {
-                    viewModel.clearCurrentUser() // Remove the logged user from the viewModel
+                    viewModel.clearCurrentUser() // the logged user is removed from viewModel
                     navController.navigate(MainActivity.DoggoPages.MainPage.name)
                 }
             ) {
                 Text("Log Out")
             }
 
-            // Display image button with 1/3 chance
-            if (random <= 1) { // Change the condition to check if random is less than or equal to 1
+            // with a chance of 1/3, the malware button appears
+            if (random <= 1) {
                 Image(
                     painter = painterResource(id = R.drawable.corona),
                     contentDescription = "A virus was found in your device! Click in the icon to fix it ;)",
@@ -134,7 +134,6 @@ fun UserProfilePage(
                 )
             }
         } else {
-            // Display a placeholder or loading state
             Text("User not logged")
         }
     }

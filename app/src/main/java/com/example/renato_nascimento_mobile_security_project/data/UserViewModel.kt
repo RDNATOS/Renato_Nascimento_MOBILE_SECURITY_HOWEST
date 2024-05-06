@@ -6,18 +6,14 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.renato_nascimento_mobile_security_project.RenatoNascimentoMobileSecurityApplication
-import com.example.renato_nascimento_mobile_security_project.network.TheDogAPIPhoto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class UserViewModel(private val userDao: UserDao): ViewModel() {
     // var that stores the logged user
     private var loggedUser: User? = null
-    //TODO after, this data should be in the database and retrieved there
-    private var favouriteDoggo: TheDogAPIPhoto? = null
 
-
-    // Function to set the current user
+    // fnction to set the current user
     fun getUsers(): Flow<List<User>> = userDao.getAllUsers()
 
     fun getUser(id: Int): Flow<User> = userDao.getUser(id)
@@ -44,7 +40,7 @@ class UserViewModel(private val userDao: UserDao): ViewModel() {
         loggedUser = user
     }
 
-    // Function to retrieve the current user
+    // function to retrieve the current user
     fun getCurrentUser(): User? {
         return loggedUser
     }
@@ -54,36 +50,6 @@ class UserViewModel(private val userDao: UserDao): ViewModel() {
         loggedUser = null
     }
     ////////////////////////////////////
-
-
-
-    ///// TO GET THE FAVOURITE DOGGO/////
-
-
-    suspend fun setFavouriteDoggo(email : String, newPhoto: String) {
-        //updates the favourite doggo in the database
-        userDao.updateFavouriteDoggoPhoto(email, newPhoto)
-    }
-
-    suspend fun getFavouriteDoggoPhotoUrl(email : String) : String {
-        return convertFlowToString(userDao.getFavouriteDoggoPhoto(email))
-    }
-
-
-    // Function to clear the current user (on logout)
-
-    ////////////////////////////////////
-
-
-    suspend fun convertFlowToString(flow: Flow<String?>): String {
-        val stringBuilder = StringBuilder()
-
-        flow.collect { value ->
-            stringBuilder.append(value)
-        }
-
-        return stringBuilder.toString()
-    }
 
     companion object {
         val factory : ViewModelProvider.Factory = viewModelFactory {

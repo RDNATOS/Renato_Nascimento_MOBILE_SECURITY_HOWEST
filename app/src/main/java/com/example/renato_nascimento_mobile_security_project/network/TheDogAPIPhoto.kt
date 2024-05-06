@@ -13,7 +13,8 @@ data class TheDogAPIPhoto(
     @SerialName(value = "url")
     val url: String,
     @SerialName(value = "width")
-    val width: Int?,
+    val width: Int?, //sometimes the dog api returns null data for width that poses a
+    // problem while fetching data
     @SerialName(value = "height")
     val height: Int?
 )

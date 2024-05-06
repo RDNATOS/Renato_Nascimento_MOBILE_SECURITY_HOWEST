@@ -25,16 +25,3 @@ abstract class UserDatabase : RoomDatabase()
 
 
 }
-
-/*
-
- fun getDatabase(context: Context): UserDatabase {
-            return Instance ?: synchronized(this) {
-                Room.databaseBuilder(context, UserDatabase::class.java, "user_database")
-                    .createFromAsset("database/doggoDatabase.db") //retrieves the.db
-                    .fallbackToDestructiveMigration()
-                    .build().also { Instance = it }
-            }
-        }
-    }
- */

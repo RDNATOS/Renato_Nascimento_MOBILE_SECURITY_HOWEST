@@ -4,15 +4,15 @@ import com.example.renato_nascimento_mobile_security_project.network.TheDogAPIPh
 import com.example.renato_nascimento_mobile_security_project.network.TheDogAPIService
 
 /**
- * Repository that fetch mars photos list from marsApi.
+ * fetch mars photos list from theDogAPI.
  */
 interface TheDogAPIPhotosRepository {
-    /** Fetches list of MarsPhoto from marsApi */
+    /** Fetches list of TheDogAPIPhoto from theDogAPIi */
     suspend fun getTheDogAPIPhotos(): List<TheDogAPIPhoto>
 }
 
 /**
- * Network Implementation of Repository that fetch mars photos list from marsApi.
+ * Network Implementation of Repository that fetch dog photos list from theDogAPI.
  */
 class NetworkTheDogAPIPhotosRepository(
     private val theDogAPIService: TheDogAPIService

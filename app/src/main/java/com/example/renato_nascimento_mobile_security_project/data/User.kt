@@ -3,11 +3,6 @@ package com.example.renato_nascimento_mobile_security_project.data
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
-/**
- * Entity data class represents a single row in the database.
- */
-
 @Entity(tableName = "users")
 data class User(
     @PrimaryKey(autoGenerate = true)

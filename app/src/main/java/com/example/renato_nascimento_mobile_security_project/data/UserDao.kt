@@ -6,9 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.renato_nascimento_mobile_security_project.network.TheDogAPIPhoto
 import kotlinx.coroutines.flow.Flow
-
 
 
 @Dao
